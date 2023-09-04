@@ -2,6 +2,7 @@ const React = require('react');
 
 function Index({allFlights}) {
     console.log(allFlights);
+    const currentTime = new Date
     return (
         <main>
             <nav>
@@ -13,10 +14,12 @@ function Index({allFlights}) {
             return (
                 <li key={flight._id}>
                     Airline: {flight.airline} <br/> 
-                    Flight Number: {flight.flightNo} <br/> 
-                    Departure Time: {flight.departs.toString()} style=
+                    Flight Number: {flight.flightNo} <br/>                 
+                    <div style={{color: `${flight.departs < currentTime ? 'red' : 'black'}` }}>Depature: {flight.departs.toString()}</div>
+                    <a href={`/flights/${flight._id}`}>Details</a>
                     <br/>
-                    {/* style={{color: `${fruit.readyToEat ? 'green' : 'red'}` }} */}
+                    <br/>
+                    
                 </li>
                 
                 )
